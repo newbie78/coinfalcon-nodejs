@@ -1,0 +1,51 @@
+{
+  "name": "coinfalcon-nodejs",
+  "version": "0.1.0",
+  "description": "A complete API & WebSocket library for CoinFalcon.",
+  "main": "dist",
+  "scripts": {
+    "build": "rimraf dist && babel src -d dist",
+    "cover": "nyc ava",
+    "lint": "eslint src/ test/",
+    "report": "npm run cover && nyc report --reporter=text-lcov | coveralls",
+    "test": "ava"
+  },
+  "keywords": [
+    "coinfalcon",
+    "coinfalcon-api",
+    "coinfalcon-websockets"
+  ],
+  "author": "Vivek Marakana <vivek.marakana@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "coveralls": "^3.0.2",
+    "dotenv": "^6.1.0",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-zavatta": "^6.0.2",
+    "nyc": "^13.1.0",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "ws": "^6.1.0"
+  },
+  "ava": {
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "files": [
+      "test/index.js"
+    ],
+    "babel": "inherit"
+  }
+}
